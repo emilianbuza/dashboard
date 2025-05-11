@@ -5,9 +5,9 @@ function App() {
   const [stats, setStats] = useState([])
 
   useEffect(() => {
-    axios.get('https://your-backend.onrender.com/api/gclid-stats', {
+    axios.get('https://conversion-tracking-server.onrender.com/api/gclid-stats', {
       headers: {
-        'x-api-key': 'DEIN_API_KEY'
+        'x-api-key': 'meinGeheimerApiKey'
       }
     }).then(res => {
       setStats(res.data)
