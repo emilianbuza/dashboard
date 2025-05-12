@@ -12,9 +12,7 @@ function App() {
         'x-api-key': 'meinGeheimerApiKey'
       }
     })
-    .then(res => {
-      setStats(res.data)
-    })
+    .then(res => setStats(res.data))
     .catch(err => {
       console.error("Fehler beim Laden:", err)
       setError('API konnte nicht geladen werden')
