@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
+import GclidTable from './GclidTable'
 
 function App() {
   const [stats, setStats] = useState([])
@@ -37,6 +38,8 @@ function App() {
           <p>Consent: ✅ {item.consentYes} | ❌ {item.consentNo}</p>
         </div>
       ))}
+
+      <GclidTable />
     </div>
   )
 }
