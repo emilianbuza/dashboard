@@ -5,18 +5,21 @@ function GclidTable() {
   const [entries, setEntries] = useState([])
   const [error, setError] = useState(null)
 
-  useEffect(() => {
-    axios.get('https://conversion-tracking-server.onrender.com/api/gclid-entries', {
-      headers: {
-        'x-api-key': 'meinGeheimerApiKey'
-      }
-    })
-    .then(res => setEntries(res.data))
-    .catch(err => {
-      console.error("Fehler beim Laden der Tabelle:", err)
-      setError("API konnte nicht geladen werden")
-    })
-  }, [])
+useEffect(() => {
+  axios.get('https://conversion-tracking-server.onrender.com/api/gclid-entries', {
+    headers: {
+      'x-api-key': 'meinGeheimerApiKey'
+    }
+  })
+  .then(res => {
+    console.log("GCLID Response:", res.data)  // ✅ LOGGEN!
+    setEntries(res.data)
+  })
+  .catch(err => {
+    console.error("Fehler beim Laden der Tabelle:", err)
+    setError("API konnte nicht geladen werden")
+  })
+}, [])
 
   return (
     <div style={{ paddingTop: '2rem' }}>
